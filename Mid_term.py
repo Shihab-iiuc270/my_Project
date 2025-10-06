@@ -27,7 +27,7 @@ class Student:
 
     def drop_student(self, to_drop):
         if self.__student_id == to_drop:
-            if not self.is_enrolled:
+            if not self.__is_enrolled:
                 raise Exception("This student is not enrolled, cannot drop.")
             else:
                 self.__is_enrolled = False
@@ -69,6 +69,7 @@ while True:
             for student in StudentDatabase.student_list:
                 if student.enroll_student(id):
                     found = True
+                    
                     break
             if found == False:
                 print(f"Creating New Student ")
@@ -86,6 +87,7 @@ while True:
             found = False
             for student in StudentDatabase.student_list:
                 if student.drop_student(id):
+                    print(f"Student {id} has been dropped")
                     found = True
                     break
             if not found:
@@ -95,6 +97,7 @@ while True:
     elif choice == "4":
         break
     else:
+        print(" please choose 1,2,3 or 4")
         continue
         
 
